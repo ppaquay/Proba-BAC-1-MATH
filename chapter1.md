@@ -24,15 +24,16 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 
 
 `@instructions`
-- Initialisez le générateur de nombres pseudo-aléatoires avec la fonction `set.seed()`. Vous pouvez choisir n'importe quelle valeur pour cela.
+- Initialisez le générateur de nombres pseudo-aléatoires avec la fonction `set.seed()` avec la veleur 1.
 - Définissez un vecteur `piece` qui compte deux éléments `"Pile"` et `"Face"`.
-- Utilisez la fonction `sample()` pour simuler le lancer de la pièce de monnaie 10 fois d'affilée.
-- Calculez la proportion 
+- Utilisez la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer de la pièce de monnaie 10 fois d'affilée. Nommez votre résultat `lancers_10`.
+- Affichez les 5 premiers éléments du vecteur `piece` à l'aide de la fonction `head()`.
+- Calculez la proportion du nombre de lancers où on a obtenu pile à l'aide de la fonction `mean()` qui calcule la moyenne. Nommez votre résultat `prop_10`.
 
 `@hint`
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`.
+- Pour définir le vecteur `piece`, utilisez la fonction `c()`.
+- La fonction `sample()` prend deux paramètres : le vecteur `piece`, le nombre de lancers `10` et l'option `replace = TRUE`.
+- N'oubliez pas de calculer la moyenne uniquement pour les valeurs pile, c'est-à-dire `lancers10 == "Pile"`.
 
 `@pre_exercise_code`
 ```{r}
@@ -55,22 +56,30 @@ rm(Movies)
 # Simulation de 10 lancers de la pièce de monnaie
 
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# Premiers éléments de lancers_10
+
+
+# Proportion de piles obtenus
 
 ```
 
 `@solution`
 ```{r}
-# movie_selection is available in your workspace
+# Initialisation du générateur aléatoire
+set.seed(1)
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Définition du vecteur piece
+piece <- c("Pile", "Face")
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# Simulation de 10 lancers de la pièce de monnaie
+lancers_10 <- sample(piece, 10, replace = TRUE)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Premiers éléments de lancers_10
+head(lancers_10)
+
+# Proportion de piles obtenus
+prop_10 <- mean(lancers_10 == "Pile")
+
 ```
 
 `@sct`

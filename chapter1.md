@@ -4,51 +4,9 @@ description : Nous allons dans ce chapitre explorer les concepts basiques du cal
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
----
-## A really bad movie
-
-```yaml
-type: MultipleChoiceExercise
-lang: r
-xp: 50
-skills: 1
-key: f6b66ff00c
-```
-
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
-
-`@instructions`
-- Adventure
-- Action
-- Animation
-- Comedy
-
-`@hint`
-Have a look at the plot. Which color does the point with the lowest rating have?
-
-`@pre_exercise_code`
-```{r}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
-
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-library(ggplot2)
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
-```
-
-`@sct`
-```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
-```
 
 ---
-## Le lancer d'une pièce de monnaie
+## Le lancer d'une pièce de monnaie (1)
 
 ```yaml
 type: NormalExercise
@@ -60,15 +18,16 @@ key: c58587436b
 
 Nous avons vu que si un évènement $E$ a une probabilité $p$ de se produire, il semble naturel lorsque l'expérience aléatoire est répétée un grand nombre de fois, que la fraction du temps où $E$ va se réaliser sera approximativement égale à $p$.
 
-Par exemple, lors du lancer d'une pièce de monnaie bien équilibrée, nous nous attendons à ce que la probabilité d'obtenir pile soit de 1/2. D'après le raisonnement évoqué ci-dessus, si nous lancions une pièce de monnaie un grand nombre de fois, nous devrions voir que la fraction du temps où pile apparaît est égale à 1/2.
+Par exemple, lors du lancer d'une pièce de monnaie bien équilibrée, nous nous attendons à ce que la probabilité d'obtenir pile soit de 1/2. D'après le raisonnement évoqué ci-dessus, si nous lancions une pièce de monnaie un grand nombre de fois, nous devrions voir que la proportion du nombre de lancers où pile apparaît est égale à 1/2.
 
 Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus.
 
 
 `@instructions`
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- Initialisez le générateur de nombres pseudo-aléatoires avec la fonction `set.seed()`. Vous pouvez choisir n'importe quelle valeur pour cela.
+- Définissez un vecteur `piece` qui compte deux éléments `"Pile"` et `"Face"`.
+- Utilisez la fonction `sample()` pour simuler le lancer de la pièce de monnaie 10 fois d'affilée.
+- Calculez la proportion 
 
 `@hint`
 - Use `str()` for the first instruction.
@@ -87,12 +46,13 @@ rm(Movies)
 
 `@sample_code`
 ```{r}
-# movie_selection is available in your workspace
-
-# Check out the structure of movie_selection
+# Initialisation du générateur aléatoire
 
 
-# Select movies that have a rating of 5 or higher: good_movies
+# Définition du vecteur piece
+
+
+# Simulation de 10 lancers de la pièce de monnaie
 
 
 # Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre

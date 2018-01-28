@@ -48,7 +48,7 @@ test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 ---
-## More movies
+## Le lancer d'une pièce de monnaie
 
 ```yaml
 type: NormalExercise
@@ -58,9 +58,12 @@ skills: 1
 key: c58587436b
 ```
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
+Nous avons vu que si un évènement $E$ a une probabilité $p$ de se produire, il semble naturel lorsque l'expérience aléatoire est répétée un grand nombre de fois, que la fraction du temps où $E$ va se réaliser sera approximativement égale à $p$.
 
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+Par exemple, lors du lancer d'une pièce de monnaie bien équilibrée, nous nous attendons à ce que la probabilité d'obtenir pile soit de 1/2. D'après le raisonnement évoqué ci-dessus, si nous lancions une pièce de monnaie un grand nombre de fois, nous devrions voir que la fraction du temps où pile apparaît est égale à 1/2.
+
+Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus.
+
 
 `@instructions`
 - Check out the structure of `movie_selection`.

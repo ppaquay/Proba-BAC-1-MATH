@@ -80,9 +80,11 @@ test_function("set.seed", args = "seed",
               not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
               
-test_object("piece")
+test_object("piece",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `piece`.")
 
-test_object("lancers_10")
+test_object("lancers_10",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers_10`. Avez-vous bien précisé tous les paramètres ?")
 
 test_function("head", args = "x",
               not_called_msg = "Vous n'avez pas utilisé la fonction `head()` !",
@@ -96,7 +98,8 @@ test_function("mean", args = "x",
               not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `mean(x = ...)` avec les arguments corrects.")
 
-test_object("prop_10")
+test_object("prop_10",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `prop_10`. Avez-vous bien précisé tous les paramètres ?")
 
 test_error(incorrect_msg = "Une erreur est présente dans votre code-source.")
 

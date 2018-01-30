@@ -76,7 +76,7 @@ prop_10 <- mean(lancers_10 == "Pile")
 `@sct`
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-test_function("set.seed", args = 1,
+test_function("set.seed", args = "seed",
               not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
               
@@ -84,15 +84,15 @@ test_object("piece")
 
 test_object("lancers_10")
 
-test_function("head", args = "lancers_10",
+test_function("head", args = "x",
               not_called_msg = "Vous n'avez pas utilisé la fonction `head()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `head(x = ...)` avec les arguments corrects.")
 
-test_function("sample", args = c("piece", 10, TRUE),
+test_function("sample", args = c("x", "size", "replace"),
               not_called_msg = "Vous n'avez pas utilisé la fonction `sample()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `sample(x = ..., taille = ..., replace = TRUE)` avec les arguments corrects.")
               
-test_function("mean", args = "lancers_10 == Pile",
+test_function("mean", args = "x",
               not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `mean(x = ...)` avec les arguments corrects.")
 

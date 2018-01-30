@@ -24,7 +24,7 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 
 
 `@instructions`
-- Initialisez le générateur de nombres pseudo-aléatoires avec la fonction `set.seed()` avec la valeur 1.
+- Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
 - Définissez un vecteur `piece` qui compte deux éléments `"Pile"` et `"Face"`.
 - Utilisez la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer de la pièce de monnaie 10 fois d'affilée. Nommez votre résultat `lancers_10`.
 - Affichez les 5 premiers éléments du vecteur `lancers_10` à l'aide de la fonction `head()`.

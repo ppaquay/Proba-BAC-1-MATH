@@ -24,10 +24,10 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 
 
 `@instructions`
-- Initialisez le générateur de nombres pseudo-aléatoires avec la fonction `set.seed()` avec la veleur 1.
+- Initialisez le générateur de nombres pseudo-aléatoires avec la fonction `set.seed()` avec la valeur 1.
 - Définissez un vecteur `piece` qui compte deux éléments `"Pile"` et `"Face"`.
 - Utilisez la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer de la pièce de monnaie 10 fois d'affilée. Nommez votre résultat `lancers_10`.
-- Affichez les 5 premiers éléments du vecteur `piece` à l'aide de la fonction `head()`.
+- Affichez les 5 premiers éléments du vecteur `lancers_10` à l'aide de la fonction `head()`.
 - Calculez la proportion du nombre de lancers où on a obtenu pile à l'aide de la fonction `mean()` qui calcule la moyenne. Nommez votre résultat `prop_10`.
 
 `@hint`
@@ -44,12 +44,13 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 
 
 # Simulation de 10 lancers de la pièce de monnaie
-
+lancers_10 <- sample(___, ___, replace = TRUE)
 
 # Premiers éléments de lancers_10
 
 
 # Proportion de piles obtenus
+prop_10 <- mean(___)
 
 ```
 
@@ -76,7 +77,7 @@ prop_10 <- mean(lancers_10 == "Pile")
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 test_function("set.seed", args = 1,
-              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !"
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
               incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
               
 test_object("piece")
@@ -99,5 +100,5 @@ test_object("prop_10")
 
 test_error(incorrect_msg = "Une erreur est présente dans votre code-source.")
 
-success_msg("Bravo ! Il nous reste maintenant à calculer la proportion de pile obtenue pour un nombre variable de lancers.")
+success_msg("Bravo ! Il nous reste maintenant à calculer la proportion de piles obtenue pour un nombre variable de lancers.")
 ```

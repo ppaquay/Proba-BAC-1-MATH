@@ -101,7 +101,106 @@ test_function("mean", args = "x",
 test_object("prop_10",
             incorrect_msg = "Vous n'avez pas défini correctement l'objet `prop_10`. Avez-vous bien précisé tous les paramètres ?")
 
-test_error(incorrect_msg = "Une erreur est présente dans votre code-source.")
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
 success_msg("Bravo ! Il nous reste maintenant à calculer la proportion de piles obtenue pour un nombre variable de lancers.")
+```
+
+---
+## Le lancer d'une pièce de monnaie (2)
+
+```yaml
+type: NormalExercise
+key: eeafc22f7b
+lang: r
+xp: 100
+skills: 1
+```
+Nous allons maintenant écrire une fonction qui prend comme arguments notre vecteur `piece`, le nombre de lancers et qui donne comme résultat la proportion de piles obtenus. Cette manière de procéder a l'avantage de produire du code que nous pourrons réutiliser directement.
+
+Le vecteur `piece` est déjà défini dans votre espace de travail.
+
+`@instructions`
+- Initialisez ici encore le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
+- Complétez le corps de la fonction `prop_n()` qui prend comme arguments un vecteur `vec` et un nombre `n` de lancers.
+- Testez votre fonction avec le vecteur `piece` et un nombre de lancers égal à 100, 1000 et 10000 successivement. Nommez ces résultats par `prop_100`, `prop_1000` et `prop_10000` respectivement. N'oubliez pas d'afficher vos résultats.
+
+`@hint`
+- Pour compléter le corps de la fonction `prop_n()`, inspirez-vous de l'exercice précédent.
+
+`@pre_exercise_code`
+```{r}
+piece <- c("Pile", "Face")
+```
+
+`@sample_code`
+```{r}
+# Initialisation du générateur aléatoire
+
+
+# Définition de la fonction prop_n()
+prop_n <- function(vec, n) {
+  lancers_n <- sample(___, ___, replace = TRUE)
+  prop_n <- mean(___)
+  
+  return(prop_n)
+}
+
+# Proportion de piles pour 100 lancers
+prop_100 <- prop_n(___, ___)
+prop_100
+
+# Proportion de piles pour 1000 lancers
+
+
+# Proportion de piles pour 10000 lancers
+
+
+```
+
+`@solution`
+```{r}
+# Initialisation du générateur aléatoire
+set.seed(1)
+
+# Définition de la fonction prop_n()
+prop_n <- function(vec, n) {
+  lancers_n <- sample(vec, n, replace = TRUE)
+  prop_n <- mean(lancers_n == "Pile")
+  
+  return(prop_n)
+}
+
+# Proportion de piles pour 100 lancers
+prop_100 <- prop_n(piece, 100)
+prop_100
+
+# Proportion de piles pour 1000 lancers
+prop_1000 <- prop_n(piece, 1000)
+prop_1000
+
+# Proportion de piles pour 10000 lancers
+prop_10000 <- prop_n(piece, 10000)
+prop_10000
+
+```
+
+`@sct`
+```{r}
+test_function("set.seed", args = "seed",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
+              
+test_object("prop_100",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `prop_100`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_object("prop_1000",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `prop_1000`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_object("prop_10000",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `prop_10000`. Avez-vous bien précisé tous les paramètres ?")
+
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
+
+success_msg("Très bien ! Nous constatons que les proportions obtenues sont de plus en plus proche de 0.5. Nous allons maintenant représenter le graphique qui donne la proportion de piles obtenue en fonction du nombre de lancers.")
 ```

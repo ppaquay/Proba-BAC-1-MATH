@@ -35,16 +35,6 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 - La fonction `sample()` prend deux paramètres : le vecteur `piece`, le nombre de lancers `10` et l'option `replace = TRUE`.
 - N'oubliez pas de calculer la moyenne uniquement pour les valeurs pile, c'est-à-dire `lancers10 == "Pile"`.
 
-`@pre_exercise_code`
-```{r}
-# You can also prepare your dataset in a specific way in the pre exercise code
-load(url("https://s3.amazonaws.com/assets.datacamp.com/course/teach/movies.RData"))
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"), c("Genre", "Rating", "Run")]
-
-# Clean up the environment
-rm(Movies)
-```
-
 `@sample_code`
 ```{r}
 # Initialisation du générateur aléatoire

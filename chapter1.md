@@ -75,18 +75,29 @@ prop_10 <- mean(lancers_10 == "Pile")
 `@sct`
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+test_function("set.seed", args = 1,
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !"
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
+              
+test_object("piece")
 
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+test_object("lancers_10")
 
-test_object("good_movies")
+test_function("head", args = "lancers_10",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `head()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `head(x = ...)` avec les arguments corrects.")
 
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+test_function("sample", args = c("piece", 10, TRUE),
+              not_called_msg = "Vous n'avez pas utilisé la fonction `sample()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `sample(x = ..., taille = ..., replace = TRUE)` avec les arguments corrects.")
+              
+test_function("mean", args = "lancers_10 == Pile",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `mean(x = ...)` avec les arguments corrects.")
 
-test_error()
+test_object("prop_10")
 
-success_msg("Good work!")
+test_error(incorrect_msg = "Une erreur est présente dans votre code-source.")
+
+success_msg("Bravo ! Il nous reste maintenant à calculer la proportion de pile obtenue pour un nombre variable de lancers.")
 ```

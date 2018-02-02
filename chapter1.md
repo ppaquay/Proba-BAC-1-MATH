@@ -202,5 +202,97 @@ test_object("prop_10000",
 
 test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
-success_msg("Très bien ! Nous constatons que les proportions obtenues sont de plus en plus proche de 0.5. Nous allons maintenant représenter le graphique qui donne la proportion de piles obtenue en fonction du nombre de lancers.")
+success_msg("Très bien ! Nous constatons que les proportions obtenues sont de plus en plus proche de 0.5. Nous allons maintenant représenter le graphique de la fonction qui donne la proportion de piles obtenue en fonction du nombre de lancers.")
+```
+
+---
+## Le lancer d'une pièce de monnaie (3)
+
+```yaml
+type: NormalExercise
+key: 83e9502afb
+lang: r
+xp: 100
+skills: 1
+```
+Il est maintenant temps de tracer le graphe de la fonction qui donne la proportion de piles obtenue en fonction du nombre de lancers.
+
+Le vecteur `piece` et la fonction `prop_n()` sont déjà définis dans votre espace de travail.
+
+*N.B.* La fonction `prop_n()` définie dans l'exercice précédent a ici été modifiée pour accepter des arguments vectoriels.
+
+`@instructions`
+- Initialisez ici encore le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
+- Définissez un vecteur `lancers` qui contient le nombre de lancers différents à l'aide de la fonction `seq()` qui débute à 1 jusque 10000 par bonds de 10.
+- Définissez un vecteur `prop_piles` qui contient la proportion de piles obtenues en fonction du nombre de lancers à l'aide de votre fonction `prop_n()` et les arguments `piece` et `lancers`.
+- Représentez le graphe de la fonction `prop_n()` à l'aide de la fonction `plot()` avec les arguments suivants : `lancers` pour les abscisses, `prop_pile` pour les ordonnées, `"Nbre de lancers"` pour le nom de l'axe des abscisses et `"Proportion de piles"` pour le nom de l'axe des ordonnées.
+- Tracez la droite d'équation $y = 0.5$ à l'aide de la fonction `abline()` et les arguments suivants : `0.5` pour l'ordonnée à l'origine et `0` pour la pente.
+
+
+`@hint`
+- La fonction `seq()` prend comme arguments le premier et le dernier éléments de la séquence, et le troisième argument correspond aux bonds entre chaque élément de la séquence.
+
+`@pre_exercise_code`
+```{r}
+piece <- c("Pile", "Face")
+prop_n <- function(vec, n) {
+  lancers_n <- sample(vec, n, replace = TRUE)
+  prop_n <- mean(lancers_n == "Pile")
+  
+  return(prop_n)
+}
+prop_n <- Vectorize(prop_n, vectorize.args = "n")
+```
+
+`@sample_code`
+```{r}
+# Initialisation du générateur aléatoire
+
+
+# Définition des vecteurs lancers et prop_piles
+lancers <- seq(___, ___, by = ___)
+prop_piles <- prop_n(___, ___)
+
+# Tracé du graphique de la fonction prop_n()
+plot(___, ___, xlab = ___, ylab = ___, type = "l", col = "blue")
+abline(___, ___, col = "red", lty = 2)
+```
+
+`@solution`
+```{r}
+# Initialisation du générateur aléatoire
+set.seed(1)
+
+# Définition des vecteurs lancers et prop_piles
+lancers <- seq(1, 10000, by = 10)
+prop_piles <- prop_n(piece, lancers)
+
+# Tracé du graphique de la fonction prop_n()
+plot(lancers, prop_piles, xlab = "Nbre de lancers", ylab = "Proportion de piles", type = "l", col = "blue")
+abline(0.5, 0, col = "red", lty = 2)
+```
+
+`@sct`
+```{r}
+test_function("set.seed", args = "seed",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
+              
+test_object("lancers",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_object("prop_piles",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `prop_piles`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_function("plot", args = c("x", "y", "xlab", "ylab"),
+              not_called_msg = "Vous n'avez pas utilisé la fonction `plot()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `plot(x = ..., y = ...)` avec les arguments demandés.")
+              
+test_function("abline", args = c("a", "b"),
+              not_called_msg = "Vous n'avez pas utilisé la fonction `abline()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `abline(a = ..., b = ...)` avec les arguments demandés.")
+            
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
+
+success_msg("Bravo ! Comme prévu, nous constatons clairement que plus le nombre de lancers augmente plus nous nous rapprochons de la proportion 1/2 attendue.")
 ```

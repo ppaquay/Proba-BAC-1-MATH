@@ -383,3 +383,105 @@ test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
 success_msg("Très bien ! Nous avons maintenant à notre disposition une fonction qui va nous permettre de calculer diverses probabilités concernant ces deux dés.")
 ```
+
+---
+## Lancer de deux dés à quatre faces (2)
+
+```yaml
+type: NormalExercise
+key: 04f5786102
+lang: r
+xp: 100
+skills: 1
+```
+Nous sommes maintenant prêts à calculer les probabilités de divers évènements en lien avec le lancer des deux dés à quatre faces.
+
+Le vecteur `de` et la fonction `lancers_des()` sont déjà définis dans votre espace de travail.
+
+`@instructions`
+- Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
+- Utilisez la fonction `lancers_des()` pour définir un tableau `lancers_10000` qui contient les résultats de 10000 lancers des deux dés.
+- Avec ce tableau et la fonction `mean()`, calculez la probabilité (ou proportion dans notre cas) que le résultat du premier dé soit égal au second.
+- De même, calculez la probabilité que le résultat du premier dé soit supérieur au second.
+- De même, calculez la probabilité que la somme des résultas des deux dés soit paire.
+
+`@hint`
+- La fonction `mean()` calcule la proportion des résultats vérifiant la caractéristique précisée.
+- L'opérateur `$` permet de sélectionner une colonne d'un tableau (ici le premier ou le second dé).
+- Un nombre est pair si le reste de sa division par 2 est 0. L'opérateur `%%` permet de calculer le reste de la division de deux nombres.
+
+`@pre_exercise_code`
+```{r}
+de <- 1:4
+
+lancers_des <- function(n) {
+  df <- data.frame(de1 = sample(de, n, replace = TRUE), de2 = sample(de, n, replace = TRUE))
+  
+  return(df)
+}
+```
+
+`@sample_code`
+```{r}
+# Initialisation du générateur aléatoire
+
+
+# Définition du tableau lancers_10000
+
+
+# Probabilité que dé1 = dé2
+mean(___$de1 == ___$de2)
+
+# Probabilité que dé1 > dé2
+mean(___ > ___)
+
+# Probabilité que dé1 + dé2 soit paire
+mean((___ + ___) %% 2 == ___)
+```
+
+`@solution`
+```{r}
+# Initialisation du générateur aléatoire
+set.seed(1)
+
+# Définition du tableau lancers_10000
+lancers_10000 <- lancers_des(10000)
+
+# Probabilité que dé1 = dé2
+mean(lancers_10000$de1 == lancers_10000$de2)
+
+# Probabilité que dé1 > dé2
+mean(lancers_10000$de1 > lancers_10000$de2)
+
+# Probabilité que dé1 + dé2 soit paire
+mean((lancers_10000$de1 + lancers_10000$de2) %% 2 == 0)
+```
+
+`@sct`
+```{r}
+test_function("set.seed", args = "seed",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
+              
+test_object("lancers_10000",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers_10000`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_function_result("mean",
+                     index = 1,
+                     not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
+                     incorrect_msg = "Votre première fonction `mean()` ne donne pas le résultat correct, vérifiez votre argument !")
+                     
+test_function_result("mean",
+                     index = 2,
+                     not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
+                     incorrect_msg = "Votre deuxième fonction `mean()` ne donne pas le résultat correct, vérifiez votre argument !")
+                     
+test_function_result("mean",
+                     index = 3,
+                     not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
+                     incorrect_msg = "Votre troisième fonction `mean()` ne donne pas le résultat correct, vérifiez votre argument !")
+              
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
+
+success_msg("Bon travail !")
+```

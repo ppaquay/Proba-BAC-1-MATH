@@ -296,3 +296,90 @@ test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
 success_msg("Bravo ! Comme prévu, nous constatons clairement que plus le nombre de lancers augmente plus nous nous rapprochons de la proportion 1/2 attendue.")
 ```
+
+---
+## Lancer de deux dés à quatre faces (1)
+
+```yaml
+type: NormalExercise
+key: dcec008e23
+lang: r
+xp: 100
+skills: 1
+```
+Nous allons maintenant nous intéresser au phénomène aléatoire qui consiste à lancer deux dés à quatre faces bien équilibrés.
+
+Pour ce faire, nous allons construire une fonction `lancers_des` qui prend comme argument un nombre de lancers et qui donne le résultat de ces lancers.
+
+`@instructions`
+- Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
+- Définissez un vecteur `de` qui contient les nombres de 1 à 4.
+- Complétez le corps de la fonction `lancers_des()` qui prend comme arguments un nombre `n` de lancers. N'oubliez pas d'utiliser la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer du dé n fois d'affilée.
+- Affichez le résultat du lancer des deux dés 10 fois de suite. Vous devez d'abord définir un vecteur `lancers10` qui contient le résultat des 10 lancers des deux dés, et ensuite vous affichez son contenu.
+
+`@hint`
+- Pour définir le vecteur `de`, vous pouvez utiliser la fonction `c()`.
+- Les arguments de la fonction `sample()` sont d'abord le vecteur `de` et ensuite le nombre `n` de répétitions.
+- Pour afficher le résultat des 10 lancers, il suffit d'utiliser la fonction `lancers_des()` avec l'argument 10 pour créer le vecteur `lancers10` et ensuite de l'afficher.
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+# Initialisation du générateur aléatoire
+
+
+# Définition du vecteur de
+
+
+# Définition de la fonction lancers_des
+lancers_des <- function(n) {
+  df <- data.frame(de1 = ___(___, ___, replace = TRUE), de2 = ___(___, ___, replace = TRUE))
+  
+  return(df)
+}
+
+# Résultat de 10 lancers des deux dés
+
+
+```
+
+`@solution`
+```{r}
+# Initialisation du générateur aléatoire
+set.seed(1)
+
+# Définition du vecteur de
+de <- 1:4
+
+# Définition de la fonction lancers_des
+lancers_des <- function(n) {
+  df <- data.frame(de1 = sample(de, n, replace = TRUE), de2 = sample(de, n, replace = TRUE))
+  
+  return(df)
+}
+
+# Résultat de 10 lancers des deux dés
+lancers10 <- lancers_des(10)
+lancers10
+```
+
+`@sct`
+```{r}
+test_function("set.seed", args = "seed",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
+              
+test_object("de",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `de`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_object("lancers10",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers10`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
+
+success_msg("Très bien ! Nous avons maintenant à notre disposition une fonction qui va nous permettre de calculer diverses probabilités concernant ces deux dés.")
+```

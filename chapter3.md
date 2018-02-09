@@ -5,31 +5,38 @@ attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:db32241f0e
-
+---
 ## <<<New Exercise>>>
 
+```yaml
+type: NormalExercise
+key: 7d083f35e1
+lang: r
+xp: 100
+skills: 1
+```
 
-*** =instructions
 
-*** =hint
+`@instructions`
 
-*** =pre_exercise_code
+`@hint`
+
+`@pre_exercise_code`
 ```{r}
 
 ```
 
-*** =sample_code
+`@sample_code`
 ```{r}
 
 ```
 
-*** =solution
+`@solution`
 ```{r}
 
 ```
 
-*** =sct
+`@sct`
 ```{r}
 
 ```

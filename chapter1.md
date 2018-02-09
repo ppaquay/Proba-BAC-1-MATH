@@ -1,8 +1,6 @@
 ---
 title       : Distributions de probabilités discrètes
 description : Nous allons dans ce chapitre explorer les concepts basiques du calcul des probabilités.
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 
 ---

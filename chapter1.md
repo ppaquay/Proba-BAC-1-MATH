@@ -496,9 +496,9 @@ lang: r
 xp: 100
 skills: 1
 ```
-Le chevalier De Méré (1607-1684), qui était un joueur invétéré, avait l'habitude de parier que, sur quatre lancers d'un dé, la valeur six allait apparaître au moins une fois.
+Le chevalier De Méré (1607-1684), qui était un joueur invétéré, avait l'habitude de parier que, sur quatre lancers d'un dé, la valeur six allait apparaître au moins une fois. Nous allons donc vérifier cette affirmation en calculant la probabilité de cet évènement.
 
-Nous allons donc vérifier cette affirmation en calculant la probabilité de cet évènement.
+Pour ce faire, nous allons construire une fonction `lancers_4des` qui prend comme argument un nombre de lancers et qui donne le résultat de ces lancers.
 
 `@instructions`
 - Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
@@ -587,4 +587,88 @@ test_function("head", args = "x",
 test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
 success_msg("Très bien ! Il nous reste maintenant à calculer la probabilité que sur les 4 lancers du dé, le 6 apparaît au moins une fois.")
+```
+
+---
+## Le pari du chevalier De Méré (2)
+
+```yaml
+type: NormalExercise
+key: 98e549f31f
+lang: r
+xp: 100
+skills: 1
+```
+Nous sommes maintenant prêts à calculer la probabilité que sur 4 lancers d'un dé, le 6 apparaisse au moins une fois.
+
+Le tableau `lancers_10000` est déjà défini dans votre espace de travail.
+
+
+`@instructions`
+- Définissez un tableau `egal_6` dans lequel chaque élément de `lancers_10000` est `TRUE` s'il est égal à 6 et `FALSE` sinon.
+- Définissez le veteur `nbre_6` qui compte le nombre de 6 obtenus sur chaque lancer des 4 dés. Pour ce faire, utilisez la fonction `rowSums()` qui fait la somme de chaque ligne dans le tableau `egal_6`.
+- Avec ce vecteur et la fonction `mean()`, calculez la probabilité d'obtenir au moins un 6 en lançant 4 dés.
+
+`@hint`
+- Pour définir le tableau `egal_6`, n'oubliez pas d'utiliser l'opérateur `==`.
+- Pour trouver la probabilité, utilisez l'expression `nbre_6 > 0`.
+
+`@pre_exercise_code`
+```{r}
+set.seed(1)
+
+de <- 1:6
+
+lancers_4des <- function(n) {
+  df <- data.frame(lancer1 = sample(de, n, replace = TRUE),
+                   lancer2 = sample(de, n, replace = TRUE),
+                   lancer3 = sample(de, n, replace = TRUE),
+                   lancer4 = sample(de, n, replace = TRUE))
+                   
+  return(df)
+}
+
+lancers_10000 <- lancers_4des(10000)
+```
+
+`@sample_code`
+```{r}
+# Eléments de 'lancers_10000' qui sont égaux à 6
+
+
+# Nombre de 6 obtenus par lancers
+nbre_6 <- rowSums(___)
+
+# Probabilité d'obtenir un 6 au moins
+mean(___ > ___)
+```
+
+`@solution`
+```{r}
+# Eléments de 'lancers_10000' qui sont égaux à 6
+egal_6 <- lancers_10000 == 6
+
+# Nombre de 6 obtenus par lancers
+nbre_6 <- rowSums(egal_6)
+
+# Probabilité d'obtenir un 6 au moins
+mean(nbre_6 > 0)
+```
+
+`@sct`
+```{r}
+test_object("egal_6",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `egal_6`. Avez-vous bien précisé tous les paramètres ?")
+
+test_object("nbre_6",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `nbre_6`. Avez-vous bien précisé tous les paramètres ?")
+     
+test_function_result("mean",
+                     index = 1,
+                     not_called_msg = "Vous n'avez pas utilisé la fonction `mean()` !",
+                     incorrect_msg = "Votre fonction `mean()` ne donne pas le résultat correct, vérifiez votre argument !")
+                     
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
+
+success_msg("Bon travail ! Comme la probabilité est supérieure à 1/2, le chevalier De Méré avait effectivement raison de faire ce pari.")
 ```

@@ -38,13 +38,13 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 # Initialisation du générateur aléatoire
 
 
-# Définition du vecteur piece
+# Définition du vecteur 'piece'
 
 
 # Simulation de 10 lancers de la pièce de monnaie
 lancers_10 <- sample(___, ___, replace = TRUE)
 
-# Premiers éléments de lancers_10
+# Premiers éléments de 'lancers_10'
 
 
 # Proportion de piles obtenus
@@ -57,13 +57,13 @@ prop_10 <- mean(___)
 # Initialisation du générateur aléatoire
 set.seed(1)
 
-# Définition du vecteur piece
+# Définition du vecteur 'piece'
 piece <- c("Pile", "Face")
 
 # Simulation de 10 lancers de la pièce de monnaie
 lancers_10 <- sample(piece, 10, replace = TRUE)
 
-# Premiers éléments de lancers_10
+# Premiers éléments de 'lancers_10'
 head(lancers_10)
 
 # Proportion de piles obtenus
@@ -136,7 +136,7 @@ piece <- c("Pile", "Face")
 # Initialisation du générateur aléatoire
 
 
-# Définition de la fonction prop_n()
+# Définition de la fonction 'prop_n()'
 prop_n <- function(vec, n) {
   lancers_n <- sample(___, ___, replace = TRUE)
   prop_n <- mean(___)
@@ -161,7 +161,7 @@ prop_100
 # Initialisation du générateur aléatoire
 set.seed(1)
 
-# Définition de la fonction prop_n()
+# Définition de la fonction 'prop_n()'
 prop_n <- function(vec, n) {
   lancers_n <- sample(vec, n, replace = TRUE)
   prop_n <- mean(lancers_n == "Pile")
@@ -247,11 +247,11 @@ prop_n <- Vectorize(prop_n, vectorize.args = "n")
 # Initialisation du générateur aléatoire
 
 
-# Définition des vecteurs lancers et prop_piles
+# Définition des vecteurs 'lancers' et 'prop_piles'
 lancers <- seq(___, ___, by = ___)
 prop_piles <- prop_n(___, ___)
 
-# Tracé du graphique de la fonction prop_n()
+# Tracé du graphique de la fonction 'prop_n()'
 plot(___, ___, xlab = ___, ylab = ___, type = "l", col = "blue")
 abline(___, ___, col = "red", lty = 2)
 ```
@@ -261,11 +261,11 @@ abline(___, ___, col = "red", lty = 2)
 # Initialisation du générateur aléatoire
 set.seed(1)
 
-# Définition des vecteurs lancers et prop_piles
+# Définition des vecteurs 'lancers' et 'prop_piles'
 lancers <- seq(1, 10000, by = 10)
 prop_piles <- prop_n(piece, lancers)
 
-# Tracé du graphique de la fonction prop_n()
+# Tracé du graphique de la fonction 'prop_n()'
 plot(lancers, prop_piles, xlab = "Nbre de lancers", ylab = "Proportion de piles", type = "l", col = "blue")
 abline(0.5, 0, col = "red", lty = 2)
 ```
@@ -307,18 +307,18 @@ skills: 1
 ```
 Nous allons maintenant nous intéresser au phénomène aléatoire qui consiste à lancer deux dés à quatre faces bien équilibrés.
 
-Pour ce faire, nous allons construire une fonction `lancers_des` qui prend comme argument un nombre de lancers et qui donne le résultat de ces lancers.
+Pour ce faire, nous allons construire une fonction `lancers_2des` qui prend comme argument un nombre de lancers et qui donne le résultat de ces lancers.
 
 `@instructions`
 - Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
 - Définissez un vecteur `de` qui contient les nombres de 1 à 4.
-- Complétez le corps de la fonction `lancers_des()` qui prend comme arguments un nombre `n` de lancers. N'oubliez pas d'utiliser la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer du dé n fois d'affilée.
+- Complétez le corps de la fonction `lancers_2des()` qui prend comme arguments un nombre `n` de lancers. N'oubliez pas d'utiliser la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer du dé n fois d'affilée.
 - Affichez le résultat du lancer des deux dés 10 fois de suite. Vous devez d'abord définir un vecteur `lancers10` qui contient le résultat des 10 lancers des deux dés, et ensuite vous affichez son contenu.
 
 `@hint`
 - Pour définir le vecteur `de`, vous pouvez utiliser la fonction `c()`.
 - Les arguments de la fonction `sample()` sont d'abord le vecteur `de` et ensuite le nombre `n` de répétitions.
-- Pour afficher le résultat des 10 lancers, il suffit d'utiliser la fonction `lancers_des()` avec l'argument 10 pour créer le vecteur `lancers10` et ensuite de l'afficher.
+- Pour afficher le résultat des 10 lancers, il suffit d'utiliser la fonction `lancers_2des()` avec l'argument 10 pour créer le vecteur `lancers10` et ensuite de l'afficher.
 
 `@pre_exercise_code`
 ```{r}
@@ -330,11 +330,11 @@ Pour ce faire, nous allons construire une fonction `lancers_des` qui prend comme
 # Initialisation du générateur aléatoire
 
 
-# Définition du vecteur de
+# Définition du vecteur 'de'
 
 
-# Définition de la fonction lancers_des
-lancers_des <- function(n) {
+# Définition de la fonction 'lancers_des()'
+lancers_2des <- function(n) {
   df <- data.frame(de1 = ___(___, ___, replace = TRUE), de2 = ___(___, ___, replace = TRUE))
   
   return(df)
@@ -350,18 +350,18 @@ lancers_des <- function(n) {
 # Initialisation du générateur aléatoire
 set.seed(1)
 
-# Définition du vecteur de
+# Définition du vecteur 'de'
 de <- 1:4
 
-# Définition de la fonction lancers_des
-lancers_des <- function(n) {
+# Définition de la fonction 'lancers_2des()'
+lancers_2des <- function(n) {
   df <- data.frame(de1 = sample(de, n, replace = TRUE), de2 = sample(de, n, replace = TRUE))
   
   return(df)
 }
 
 # Résultat de 10 lancers des deux dés
-lancers10 <- lancers_des(10)
+lancers10 <- lancers_2des(10)
 lancers10
 ```
 
@@ -394,11 +394,11 @@ skills: 1
 ```
 Nous sommes maintenant prêts à calculer les probabilités de divers évènements en lien avec le lancer des deux dés à quatre faces.
 
-Le vecteur `de` et la fonction `lancers_des()` sont déjà définis dans votre espace de travail.
+Le vecteur `de` et la fonction `lancers_2des()` sont déjà définis dans votre espace de travail.
 
 `@instructions`
 - Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
-- Utilisez la fonction `lancers_des()` pour définir un tableau `lancers_10000` qui contient les résultats de 10000 lancers des deux dés.
+- Utilisez la fonction `lancers_2des()` pour définir un tableau `lancers_10000` qui contient les résultats de 10000 lancers des deux dés.
 - Avec ce tableau et la fonction `mean()`, calculez la probabilité (ou proportion dans notre cas) que le résultat du premier dé soit égal au second.
 - De même, calculez la probabilité que le résultat du premier dé soit supérieur au second.
 - De même, calculez la probabilité que la somme des résultas des deux dés soit paire.
@@ -412,7 +412,7 @@ Le vecteur `de` et la fonction `lancers_des()` sont déjà définis dans votre e
 ```{r}
 de <- 1:4
 
-lancers_des <- function(n) {
+lancers_2des <- function(n) {
   df <- data.frame(de1 = sample(de, n, replace = TRUE), de2 = sample(de, n, replace = TRUE))
   
   return(df)
@@ -424,7 +424,7 @@ lancers_des <- function(n) {
 # Initialisation du générateur aléatoire
 
 
-# Définition du tableau lancers_10000
+# Définition du tableau 'lancers_10000'
 
 
 # Probabilité que dé1 = dé2
@@ -442,8 +442,8 @@ mean((___ + ___) %% 2 == ___)
 # Initialisation du générateur aléatoire
 set.seed(1)
 
-# Définition du tableau lancers_10000
-lancers_10000 <- lancers_des(10000)
+# Définition du tableau 'lancers_10000'
+lancers_10000 <- lancers_2des(10000)
 
 # Probabilité que dé1 = dé2
 mean(lancers_10000$de1 == lancers_10000$de2)
@@ -482,4 +482,63 @@ test_function_result("mean",
 test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
 success_msg("Bon travail !")
+```
+
+---
+## Le pari du chevalier De Méré (1)
+
+```yaml
+type: NormalExercise
+key: d68768086e
+lang: r
+xp: 100
+skills: 1
+```
+Le chevalier De Méré (1607-1684), qui était un joueur invétéré, avait l'habitude de parier que, sur quatre lancers d'un dé, la valeur six allait apparaître au moins une fois.
+
+Nous allons donc vérifier cette affirmation en calculant la probabilité de cet évènement.
+
+`@instructions`
+
+`@hint`
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+# Initialisation du générateur aléatoire
+set.seed(1)
+
+# Définition du vecteur 'de'
+de <- 1:6
+
+# Définition de la fonction 'lancers_4des()'
+lancers_4des <- function(n) {
+  df <- data.frame(lancer1 = sample(de, n, replace = TRUE),
+                   lancer2 = sample(de, n, replace = TRUE),
+                   lancer3 = sample(de, n, replace = TRUE),
+                   lancer4 = sample(de, n, replace = TRUE))
+                   
+  return(df)
+}
+
+# Définition du vecteur 'lancers_10000'
+lancers_10000 <- lancers_4des(10000)
+
+# Premiers éléments de 'lancers_10000'
+head(lancers_10000)
+
+```
+
+`@sct`
+```{r}
+
 ```

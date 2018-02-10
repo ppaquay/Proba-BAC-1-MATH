@@ -313,12 +313,12 @@ Pour ce faire, nous allons construire une fonction `lancers_2des` qui prend comm
 - Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
 - Définissez un vecteur `de` qui contient les nombres de 1 à 4.
 - Complétez le corps de la fonction `lancers_2des()` qui prend comme arguments un nombre `n` de lancers. N'oubliez pas d'utiliser la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer du dé n fois d'affilée.
-- Affichez le résultat du lancer des deux dés 10 fois de suite. Vous devez d'abord définir un vecteur `lancers10` qui contient le résultat des 10 lancers des deux dés, et ensuite vous affichez son contenu.
+- Affichez le résultat du lancer des deux dés 10 fois de suite. Vous devez d'abord définir un vecteur `lancers_10` qui contient le résultat des 10 lancers des deux dés, et ensuite vous affichez son contenu.
 
 `@hint`
 - Pour définir le vecteur `de`, vous pouvez utiliser la fonction `c()`.
 - Les arguments de la fonction `sample()` sont d'abord le vecteur `de` et ensuite le nombre `n` de répétitions.
-- Pour afficher le résultat des 10 lancers, il suffit d'utiliser la fonction `lancers_2des()` avec l'argument 10 pour créer le vecteur `lancers10` et ensuite de l'afficher.
+- Pour afficher le résultat des 10 lancers, il suffit d'utiliser la fonction `lancers_2des()` avec l'argument 10 pour créer le vecteur `lancers_10` et ensuite de l'afficher.
 
 `@pre_exercise_code`
 ```{r}
@@ -363,8 +363,8 @@ lancers_2des <- function(n) {
 }
 
 # Résultat de 10 lancers des deux dés
-lancers10 <- lancers_2des(10)
-lancers10
+lancers_10 <- lancers_2des(10)
+lancers_10
 ```
 
 `@sct`
@@ -376,8 +376,8 @@ test_function("set.seed", args = "seed",
 test_object("de",
             incorrect_msg = "Vous n'avez pas défini correctement l'objet `de`. Avez-vous bien précisé tous les paramètres ?")
             
-test_object("lancers10",
-            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers10`. Avez-vous bien précisé tous les paramètres ?")
+test_object("lancers_10",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers_10`. Avez-vous bien précisé tous les paramètres ?")
             
 test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
@@ -535,7 +535,7 @@ lancers_4des <- function(n) {
   return(df)
 }
 
-# Définition du vecteur 'lancers_10000'
+# Définition du tableau 'lancers_10000'
 
 
 # Premiers éléments de 'lancers_10000'
@@ -560,7 +560,7 @@ lancers_4des <- function(n) {
   return(df)
 }
 
-# Définition du vecteur 'lancers_10000'
+# Définition du tableau 'lancers_10000'
 lancers_10000 <- lancers_4des(10000)
 
 # Premiers éléments de 'lancers_10000'
@@ -570,5 +570,21 @@ head(lancers_10000)
 
 `@sct`
 ```{r}
+test_function("set.seed", args = "seed",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `set.seed()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `set.seed(seed = ...)` avec l'argument 1.")
+              
+test_object("de",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `de`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_object("lancers_10000",
+            incorrect_msg = "Vous n'avez pas défini correctement l'objet `lancers_10000`. Avez-vous bien précisé tous les paramètres ?")
+            
+test_function("head", args = "x",
+              not_called_msg = "Vous n'avez pas utilisé la fonction `head()` !",
+              incorrect_msg = "Vous n'avez pas utilisé la fonction `head(x = ...)` avec les arguments corrects.")
+            
+test_error(incorrect_msg = "Une erreur est présente dans votre code source.")
 
+success_msg("Très bien ! Il nous reste maintenant à calculer la probabilité que sur les 4 lancers du dé, le 6 apparaît au moins une fois.")
 ```

@@ -335,7 +335,8 @@ Pour ce faire, nous allons construire une fonction `lancers_2des` qui prend comm
 
 # Définition de la fonction 'lancers_des()'
 lancers_2des <- function(n) {
-  df <- data.frame(de1 = ___(___, ___, replace = TRUE), de2 = ___(___, ___, replace = TRUE))
+  df <- data.frame(de1 = ___(___, ___, replace = TRUE),
+                   de2 = ___(___, ___, replace = TRUE))
   
   return(df)
 }
@@ -355,7 +356,8 @@ de <- 1:4
 
 # Définition de la fonction 'lancers_2des()'
 lancers_2des <- function(n) {
-  df <- data.frame(de1 = sample(de, n, replace = TRUE), de2 = sample(de, n, replace = TRUE))
+  df <- data.frame(de1 = sample(de, n, replace = TRUE),
+                   de2 = sample(de, n, replace = TRUE))
   
   return(df)
 }
@@ -499,8 +501,16 @@ Le chevalier De Méré (1607-1684), qui était un joueur invétéré, avait l'ha
 Nous allons donc vérifier cette affirmation en calculant la probabilité de cet évènement.
 
 `@instructions`
+- Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
+- Définissez un vecteur `de` qui contient les nombres de 1 à 6.
+- Complétez le corps de la fonction `lancers_4des()` qui prend comme arguments un nombre `n` de lancers. N'oubliez pas d'utiliser la fonction `sample()` avec l'option `replace = TRUE` pour simuler le lancer du dé n fois d'affilée.
+- Définissez un tableau `lancers10000` qui contient le résultat des quatre lancers répétés 10000.
+- Affichez les 5 premières lignes du tableau `lancers_10` à l'aide de la fonction `head()`.
 
 `@hint`
+- Pour définir le vecteur `de`, vous pouvez utiliser la fonction `c()`.
+- Les arguments de la fonction `sample()` sont d'abord le vecteur `de` et ensuite le nombre `n` de répétitions.
+- Pour créer le tableau `lancers_10000`, il suffit d'utiliser la fonction `lancers_4des()` avec l'argument 10000.
 
 `@pre_exercise_code`
 ```{r}
@@ -509,6 +519,26 @@ Nous allons donc vérifier cette affirmation en calculant la probabilité de cet
 
 `@sample_code`
 ```{r}
+# Initialisation du générateur aléatoire
+
+
+# Définition du vecteur 'de'
+
+
+# Définition de la fonction 'lancers_4des()'
+lancers_4des <- function(n) {
+  df <- data.frame(lancer1 = ___(___, ___, replace = TRUE),
+                   lancer2 = ___(___, ___, replace = TRUE),
+                   lancer3 = ___(___, ___, replace = TRUE),
+                   lancer4 = ___(___, ___, replace = TRUE))
+                   
+  return(df)
+}
+
+# Définition du vecteur 'lancers_10000'
+
+
+# Premiers éléments de 'lancers_10000'
 
 ```
 

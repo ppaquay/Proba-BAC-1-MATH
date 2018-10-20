@@ -1,9 +1,8 @@
 ---
-title       : Espérance mathématique et variance
-description : Nous allons dans ce chapitre introduire les notions d'espérance et de variance.
-
-
+title: 'Espérance mathématique et variance'
+description: 'Nous allons dans ce chapitre introduire les notions d''espérance et de variance.'
 ---
+
 ## <<<New Exercise>>>
 
 ```yaml
@@ -15,9 +14,12 @@ skills: 1
 ```
 
 
+
 `@instructions`
 
+
 `@hint`
+
 
 `@pre_exercise_code`
 ```{r}

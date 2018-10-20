@@ -1,9 +1,8 @@
 ---
-title       : La loi des grands nombres
-description : Nous allons dans ce chapitre étudier la très célèbre loi des grands nombres.
-
-
+title: 'La loi des grands nombres'
+description: 'Nous allons dans ce chapitre étudier la très célèbre loi des grands nombres.'
 ---
+
 ## <<<New Exercise>>>
 
 ```yaml
@@ -15,9 +14,12 @@ skills: 1
 ```
 
 
+
 `@instructions`
 
+
 `@hint`
+
 
 `@pre_exercise_code`
 ```{r}

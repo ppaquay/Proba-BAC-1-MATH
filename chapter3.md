@@ -1,9 +1,8 @@
 ---
-title       : Probabilités conditionnelles
-description : Nous allons dans ce chapitre introduire la notion très importante de conditionalité ainsi que le fameux théorème de Bayes.
-
-
+title: 'Probabilités conditionnelles'
+description: 'Nous allons dans ce chapitre introduire la notion très importante de conditionalité ainsi que le fameux théorème de Bayes.'
 ---
+
 ## <<<New Exercise>>>
 
 ```yaml
@@ -15,9 +14,12 @@ skills: 1
 ```
 
 
+
 `@instructions`
 
+
 `@hint`
+
 
 `@pre_exercise_code`
 ```{r}

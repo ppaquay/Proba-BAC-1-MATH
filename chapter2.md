@@ -1,9 +1,8 @@
 ---
-title       : Analyse combinatoire
-description : Nous allons dans ce chapitre introduire les opérateurs combinatoires utiles pour le calcul des probabilités.
-
-
+title: 'Analyse combinatoire'
+description: 'Nous allons dans ce chapitre introduire les opérateurs combinatoires utiles pour le calcul des probabilités.'
 ---
+
 ## <<<New Exercise>>>
 
 ```yaml
@@ -15,9 +14,12 @@ skills: 1
 ```
 
 
+
 `@instructions`
 
+
 `@hint`
+
 
 `@pre_exercise_code`
 ```{r}

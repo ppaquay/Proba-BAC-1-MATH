@@ -1,17 +1,16 @@
 ---
-title       : Distributions de probabilités discrètes
-description : Nous allons dans ce chapitre explorer les concepts basiques du calcul des probabilités dans le cas discret.
-
-
+title: 'Distributions de probabilités discrètes'
+description: 'Nous allons dans ce chapitre explorer les concepts basiques du calcul des probabilités dans le cas discret.'
 ---
+
 ## Le lancer d'une pièce de monnaie (1)
 
 ```yaml
 type: NormalExercise
+key: c58587436b
 lang: r
 xp: 100
 skills: 1
-key: c58587436b
 ```
 
 Nous avons vu que si un évènement $E$ a une probabilité $p$ de se produire, il semble naturel lorsque l'expérience aléatoire est répétée un grand nombre de fois, que la proportion du temps où $E$ va se réaliser sera approximativement égale à $p$.
@@ -19,7 +18,6 @@ Nous avons vu que si un évènement $E$ a une probabilité $p$ de se produire, i
 Par exemple, lors du lancer d'une pièce de monnaie bien équilibrée, nous nous attendons à ce que la probabilité d'obtenir pile soit de 1/2. D'après le raisonnement évoqué ci-dessus, si nous lancions une pièce de monnaie un grand nombre de fois, nous devrions voir que la proportion du nombre de lancers où pile apparaît est égale à 1/2.
 
 Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus.
-
 
 `@instructions`
 - Initialisez le générateur de nombres pseudo-aléatoires à l'aide de la fonction `set.seed()` avec la valeur 1.
@@ -32,6 +30,11 @@ Nous allons simuler ce phénomène aléatoire et examiner les résultats obtenus
 - Pour définir le vecteur `piece`, utilisez la fonction `c()`.
 - La fonction `sample()` prend deux paramètres : le vecteur `piece`, le nombre de lancers `10` et l'option `replace = TRUE`.
 - N'oubliez pas de calculer la moyenne uniquement pour les valeurs pile, c'est-à-dire `lancers10 == "Pile"`.
+
+`@pre_exercise_code`
+```{undefined}
+
+```
 
 `@sample_code`
 ```{r}
@@ -107,6 +110,7 @@ success_msg("Bravo ! La proportion de piles obtenus est égale à 0.4, ce qui es
 ```
 
 ---
+
 ## Le lancer d'une pièce de monnaie (2)
 
 ```yaml
@@ -116,6 +120,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Nous allons maintenant écrire une fonction qui prend comme argument le nombre de lancers d'une pièce et qui donne comme résultat la proportion de piles obtenus. Cette manière de procéder a l'avantage de produire du code que nous pourrons réutiliser directement.
 
 Le vecteur `piece` est déjà défini dans votre espace de travail.
@@ -208,6 +213,7 @@ success_msg("Très bien ! Nous constatons que les proportions obtenues sont de p
 ```
 
 ---
+
 ## Le lancer d'une pièce de monnaie (3)
 
 ```yaml
@@ -217,6 +223,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Il est maintenant temps de tracer le graphe de la fonction qui donne la proportion de piles obtenue en fonction du nombre de lancers.
 
 Le vecteur `piece` et la fonction `prop_piece()` sont déjà définis dans votre espace de travail.
@@ -229,7 +236,6 @@ Le vecteur `piece` et la fonction `prop_piece()` sont déjà définis dans votre
 - Définissez un vecteur `prop_piles` qui contient la proportion de piles obtenues en fonction du nombre de lancers à l'aide de votre fonction `prop_piece()` et l'argument `lancers`.
 - Représentez le graphe de la fonction `prop_piece()` à l'aide de la fonction `plot()` avec les arguments suivants : `lancers` pour les abscisses, `prop_pile` pour les ordonnées, `"Nbre de lancers"` pour le nom de l'axe des abscisses et `"Proportion de piles"` pour le nom de l'axe des ordonnées.
 - Tracez la droite d'équation $y =$ 0.5 à l'aide de la fonction `abline()` et les arguments suivants : `0.5` pour l'ordonnée à l'origine et `0` pour la pente.
-
 
 `@hint`
 - La fonction `seq()` prend comme arguments le premier et le dernier éléments de la séquence, et le troisième argument correspond aux bonds entre chaque élément de la séquence.
@@ -300,6 +306,7 @@ success_msg("Bravo ! Comme prévu, nous constatons clairement que plus le nombre
 ```
 
 ---
+
 ## Lancer de deux dés à quatre faces (1)
 
 ```yaml
@@ -309,6 +316,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Nous allons maintenant nous intéresser au phénomène aléatoire qui consiste à lancer deux dés à quatre faces bien équilibrés.
 
 Pour ce faire, nous allons construire une fonction `lancers_des` qui prend comme argument un nombre de dés et qui donne le résultat du lancer de ces dés.
@@ -387,6 +395,7 @@ success_msg("Très bien ! Nous avons maintenant à notre disposition une fonctio
 ```
 
 ---
+
 ## Lancer de deux dés à quatre faces (2)
 
 ```yaml
@@ -396,6 +405,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Nous sommes maintenant prêts à calculer les probabilités de divers évènements en lien avec le lancer des deux dés à quatre faces.
 
 Le vecteur `de` et la fonction `lancers_des()` sont déjà définis dans votre espace de travail.
@@ -490,6 +500,7 @@ success_msg("Bon travail !")
 ```
 
 ---
+
 ## Le pari du chevalier De Méré (1)
 
 ```yaml
@@ -499,6 +510,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Le chevalier De Méré (1607-1684), qui était un joueur invétéré, avait l'habitude de parier que, sur un lancer de quatre dés, la valeur six allait apparaître au moins une fois. Nous allons donc vérifier cette affirmation en calculant la probabilité de cet évènement.
 
 Pour ce faire, nous allons modifier notre fonction `lancers_des` pour utiliser un dé à 6 faces.
@@ -575,6 +587,7 @@ success_msg("Très bien ! Il nous reste maintenant à calculer la probabilité q
 ```
 
 ---
+
 ## Le pari du chevalier De Méré (2)
 
 ```yaml
@@ -584,10 +597,10 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Nous sommes maintenant prêts à calculer la probabilité que sur 4 lancers d'un dé, le 6 apparaisse au moins une fois.
 
 La matrice `lancers_10000` est déjà définie dans votre espace de travail.
-
 
 `@instructions`
 - Définissez un tableau `egal_6` dans lequel chaque élément de `lancers_10000` est `TRUE` s'il est égal à 6 et `FALSE` sinon.

@@ -1,9 +1,8 @@
 ---
-title       : Quelques distributions importantes
-description : Nous allons dans ce chapitre étudier diverses distributions de probabilités discrètes.
-
-
+title: 'Quelques distributions importantes'
+description: 'Nous allons dans ce chapitre étudier diverses distributions de probabilités discrètes.'
 ---
+
 ## <<<New Exercise>>>
 
 ```yaml
@@ -15,9 +14,12 @@ skills: 1
 ```
 
 
+
 `@instructions`
 
+
 `@hint`
+
 
 `@pre_exercise_code`
 ```{r}
